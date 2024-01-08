@@ -1,0 +1,23 @@
+<!-- <p>by-capital-page works!</p> -->
+<div>
+  <app-shared-search-box placeholder="Buscar por idioma"
+                         (emitInput)="searchByLanguage($event)"
+                         (onDebouncer)="searchByLanguage($event)"
+                         [initialValue]="initialValue">
+                        </app-shared-search-box>
+</div>
+<div *ngIf="countries.length > 0; else warning" class="p-2">
+  <app-shared-loading-spinner *ngIf="isLoading"></app-shared-loading-spinner>
+  <app-countries-country-table [countries]="countries"></app-countries-country-table>
+</div>
+
+<ng-template #warning>
+  <div class="w-full p-2">
+    <div class="overflow-x-auto">
+      <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+        <p class="font-bold">No hay paises que mostrar</p>
+        <p>Realice una búsqueda</p>
+      </div>
+    </div>
+  </div>
+</ng-template>

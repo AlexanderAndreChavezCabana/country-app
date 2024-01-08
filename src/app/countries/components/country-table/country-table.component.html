@@ -1,0 +1,39 @@
+<div class="w-full p-2">
+  <div class="overflow-x-auto">
+    <table class="w-full bg-white shadow-md rounded-xl">
+      <thead>
+        <tr class="bg-blue-gray-100 text-gray-700">
+          <th class="py-3 px-4 text-left">N°</th>
+          <th class="py-3 px-4 text-left">Flag</th>
+          <th class="py-3 px-4 text-left">Country</th>
+          <th class="py-3 px-4 text-left">Capital</th>
+          <th class="py-3 px-4 text-left">Population</th>
+          <th class="py-3 px-4 text-left">Region</th>
+          <th class="py-3 px-4 text-left">Enlace</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let country of countries; let i = index" class="text-blue-gray-900">
+        <tr class="border-b border-blue-gray-200">
+          <td class="py-3 px-4">{{ i+1 }}</td>
+          <td class="py-3 px-4">
+            <img [src]="country.flags.svg" [alt]="country.name.common" class="w-5 h-5">
+          </td>
+          <td class="py-3 px-4">{{ country.name.common }}</td>
+          <td class="py-3 px-4">{{ country.capital }}</td>
+          <td class="py-3 px-4">{{ country.population | number }}</td>
+          <td class="py-3 px-4">{{ country.region }}</td>
+          <td class="py-3 px-4">
+            <a [routerLink]="['/countries/by', country.cca2]" class="font-medium text-blue-600 hover:text-blue-800">Ver más</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="w-full pt-5 px-4 mb-8 mx-auto ">
+      <div class="text-sm text-gray-700 py-1 text-center">
+          Made with <a class="text-gray-700 font-semibold" href="https://www.material-tailwind.com/docs/html/table/?ref=tailwindcomponents" target="_blank">Material Tailwind</a> by <a href="https://github.com/AlexanderAndreChavezCabana" class="text-gray-700 font-semibold" target="_blank"> Alexander Chavez Cabana</a>.
+      </div>
+    </div>
+  </div>
+</div>
+
+
